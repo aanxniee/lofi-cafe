@@ -1,0 +1,24 @@
+body,h1, h2, h3, h4, h5, p, a, form, textarea {font-family: Poppins; font-weight: 300}
+
+div.auto{-webkit-hyphens: manual;-ms-hyphens: manual;hyphens: manual;}
+
+html {
+  line-height: 1.15; 
+  -webkit-text-size-adjust: 100%; 
+}
+
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.icon-bar {
+    display: flex;
+}
+
+.icon {
+    padding: 1rem;
+}
+
