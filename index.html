@@ -12,11 +12,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 
-    <body style="background-color:black;">
-        <div class="icon-bar no-select">
-            <input type="image" src="assets/light.svg" draggable="false" class="icon" width="110vw" height="110vh"/>
-            <input type="image" src="assets/coffee.svg" draggable="false" class="icon" width="110vw" height="110vh"/>
-            <input type="image" src="assets/music.svg" draggable="false" class="icon" width="110vw" height="110vh"/>
+    <body>
+        
+        <h1 class="icons no-select">
+            <a class="links" id="dark-btn"><i class="fas fa-lightbulb"></i></a>
+            <a class="links" id="coffee-btn"><i class="fas fa-mug-hot"></i></a>
+            <a class="links" id="music-btn"><i class="fas fa-compact-disc"></i></a>
+        </h1>
+
+        <div class="wrapper">
+            <div class="overlay-div">
+                <img class="cafe" src="assets/blender_cafe.svg">
+            </div>
         </div>
     </body>
 </html>
