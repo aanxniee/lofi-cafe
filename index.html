@@ -13,17 +13,21 @@
 	</head>
 
     <body>
-        
         <h1 class="icons no-select">
             <a class="links" id="dark-btn"><i class="fas fa-lightbulb"></i></a>
-            <a class="links" id="coffee-btn"><i class="fas fa-mug-hot"></i></a>
+            <a class="links" id="rain-btn"><i class="fas fa-cloud-rain"></i></a>
             <a class="links" id="music-btn"><i class="fas fa-compact-disc"></i></a>
         </h1>
 
-        <div class="wrapper">
-            <div class="overlay-div">
-                <img class="cafe" src="assets/blender_cafe.svg">
-            </div>
-        </div>
+        <div id="dark-div" class="overlay-cafe-dark" style="display: none"></div>
+        <div class="cafe"></div>
+
+        <script>
+            $(document).ready(function(){
+                $("#dark-btn").click(function(){
+                    $("#dark-div").toggle();
+                })
+            });
+        </script>
     </body>
 </html>
