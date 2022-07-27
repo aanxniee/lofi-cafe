@@ -51,6 +51,23 @@ h1 {
     width: 100vw;
 }
 
+.lofi-embed {
+    position: fixed;
+    z-index: -10;
+    border-radius: 20px;
+    top: 100px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    opacity: 0;
+}
+
+.lofi-embed.-open {
+    opacity: 1;
+    transition: 50ms all;
+    z-index: 10;
+}
+
 .no-select {
     user-select: none;
     -moz-user-select: none;
