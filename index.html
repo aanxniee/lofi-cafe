@@ -13,6 +13,7 @@
 	</head>
 
     <body>
+        <embed class="lofi-embed" src="lofi.html" style="width: 90%; height: 70vh; box-shadow: 5px 5px 8px 8px rgb(0, 0, 0, 0.1)">
         <h1 class="icons no-select">
             <a class="links" id="dark-btn"><i class="fas fa-lightbulb"></i></a>
             <a class="links" id="rain-btn"><i class="fas fa-cloud-rain"></i></a>
@@ -24,6 +25,7 @@
         <audio src="assets/rain_sound.mp3" id="rain-sound" preload="auto" loop>
             Your browser does not support the audio element.
         </audio>
+
         <script>
             $(document).ready(function(){
                 $("#dark-btn").click(function(){
@@ -51,6 +53,17 @@
                     }
                 });
             });
+
+        </script>
+
+        <script>
+
+            const lofiButton = document.querySelector('.music-btn');
+            const lofi = document.querySelector('.lofi-embed');
+
+            lofiButton.addEventListener('click', () => {
+                lofi.classList.toggle('-open');
+            })
 
         </script>
 
