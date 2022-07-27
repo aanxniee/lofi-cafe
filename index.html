@@ -21,7 +21,9 @@
 
         <div id="dark-div" class="overlay-cafe-dark" style="display: none"></div>
         <div class="cafe"></div>
-
+        <audio src="assets/rain_sound.mp3" id="rain-sound" preload="auto" loop>
+            Your browser does not support the HTML5 audio element.
+        </audio>
         <script>
             $(document).ready(function(){
                 $("#dark-btn").click(function(){
@@ -29,5 +31,30 @@
                 })
             });
         </script>
+
+        <script>
+            // play music toggle
+            $(document).ready(function() {
+                var playing = false;
+                var rain = document.getElementById("rain-sound");
+                rain.volume = 0.9;
+
+                $('#rain-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (playing == false) {
+                        rain.play();
+                        playing = true;
+
+                    } else {
+                        rain.pause();
+                        playing = false;
+                    }
+
+                });
+            });
+
+        </script>
+
     </body>
 </html>
