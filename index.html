@@ -5,68 +5,99 @@
         <meta charset="UTF-8">
         <meta name="description" content="coffee and lofi | let's study">
 		<link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 		<script type="module" src="script.js"></script>
 		<script src="https://kit.fontawesome.com/89e5948346.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 	</head>
-
     <body>
-        <embed class="lofi-embed" src="lofi.html" style="width: 90%; height: 70vh; box-shadow: 5px 5px 8px 8px rgb(0, 0, 0, 0.1)">
-        <h1 class="icons no-select">
-            <a class="links" id="dark-btn"><i class="fas fa-lightbulb"></i></a>
-            <a class="links" id="rain-btn"><i class="fas fa-cloud-rain"></i></a>
-            <a class="links" id="music-btn"><i class="fas fa-compact-disc"></i></a>
-        </h1>
-
-        <div id="dark-div" class="overlay-cafe-dark" style="display: none"></div>
         <div class="cafe"></div>
-        <audio src="assets/rain_sound.mp3" id="rain-sound" preload="auto" loop>
-            Your browser does not support the audio element.
-        </audio>
-
-        <script>
-            $(document).ready(function(){
-                $("#dark-btn").click(function(){
-                    $("#dark-div").toggle();
-                })
-            });
-        </script>
+        <div class="sound-effect-container">
+            <button id="cafe-btn" class="btn"><img src="assets/cafe.svg" width="100px" height="100px"></button>
+            <button id="fire-btn" class="btn"><img src="assets/fire.svg" width="100px" height="100px"></i></button>
+            <button id="rain-btn" class="btn"><img src="assets/rain.svg" width="100px" height="100px"></i></button>
+        </div>
+        
+        <audio src="assets/cafe_sound.mp3" id="cafe-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
+        <audio src="assets/fire_sound.mp3" id="fire-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
+        <audio src="assets/rain_sound.mp3" id="rain-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
 
         <script>
             $(document).ready(function() {
-                var playing = false;
+                var cafe_playing = false;
+                var fire_playing = false;
+                var rain_playing = false;
+
+                var cafe = document.getElementById("cafe-sound");
+                var fire = document.getElementById("fire-sound");
                 var rain = document.getElementById("rain-sound");
+
+                cafe.volume = 0.8;
+                fire.volume - 0.8;
                 rain.volume = 0.8;
+
+                $('#cafe-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (cafe_playing == false) {
+                        cafe.play();
+                        cafe_playing = true;
+
+                    } else {
+                        cafe.pause();
+                        cafe_playing = false;
+                    }
+                });
+
+                $('#fire-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (fire_playing == false) {
+                        fire.play();
+                        fire_playing = true;
+
+                    } else {
+                        fire.pause();
+                        fire_playing = false;
+                    }
+                });
 
                 $('#rain-btn').click(function() {
                     $(this).toggleClass("down");
 
-                    if (playing == false) {
+                    if (rain_playing == false) {
                         rain.play();
-                        playing = true;
+                        rain_playing = true;
 
                     } else {
                         rain.pause();
-                        playing = false;
+                        rain_playing = false;
                     }
                 });
             });
-
         </script>
 
-        <script>
-
-            const lofiButton = document.querySelector('.music-btn');
-            const lofi = document.querySelector('.lofi-embed');
-
-            lofiButton.addEventListener('click', () => {
-                lofi.classList.toggle('-open');
-            })
-
-        </script>
-
-    </body>
+        <div class="music-container" id="music-container">
+            <div class="music-info">
+              <h4 id="title"></h4>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+      
+            <audio src="assets/lofi/afternoon homework.mp3" id="audio"></audio>
+      
+            <div class="img-container">
+              <img src="assets/cover.png" alt="music-cover" id="cover"/>
+            </div>
+            <div class="navigation">
+              <button id="prev" class="action-btn"><i class="fas fa-backward"></i></button>
+              <button id="play" class="action-btn action-btn-big"><i class="fas fa-play"></i></button>
+              <button id="next" class="action-btn"><i class="fas fa-forward"></i></button>
+            </div>
+          </div>
+      
+          <script src="script.js"></script>
+        </body>
 </html>

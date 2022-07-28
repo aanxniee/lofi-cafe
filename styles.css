@@ -1,80 +1,164 @@
-body, h1, h2, h3, h4, h5, p, a, form, textarea {font-family: poppins; font-weight: 300}
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body, h1, h2, h3, h4, h5, p, a, form, textarea {font-family: poppins; font-weight: 300; color: #fff;}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-    background-color: #b3bbae;
-}
-
-html {
-  -webkit-text-size-adjust: 100%; 
-}
-
-.wrapper {
-    overflow: hidden;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-    position: absolute;
-    z-index: 200;
-}
-
-h1 {
-    font-size: 3em;
-    padding-left: 1em;
-    padding-top: 0.5em;
-}
-
-.icons {
-    letter-spacing: 0.2em;
-    color: #fff;
-}
-
-.links:hover {
-    color: #1e3525;
-    transition: 200ms all;
+background-color: #82716D;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .cafe {
-    background: url("assets/blender-cafe.svg");
+    background: url("assets/cafe-bg.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     position: fixed;
-    height: 100vh;
-    width: 100vw;
+    height: 70vh;
+    width: 70vw;
 }
 
-.overlay-cafe-dark {
-    background: url("assets/blender-cafe-dark.svg");
-    position: fixed;
-    opacity: 0.7;
-    height: 100vh;
-    width: 100vw;
+.sound-effect-container {
+    position: absolute;
+    padding: 30px 0px 0px 30px;
+    top: 0;
+    left: 0;
 }
 
-.lofi-embed {
-    position: fixed;
-    z-index: -10;
-    border-radius: 20px;
-    top: 100px;
-    left: 50px;
-    right: 50px;
-    bottom: 50px;
-    opacity: 0;
+.btn {
+    border: 0;
+    background-color: #82716D;
+    color: #fff;
+    font-size: 50px;
+    padding-right: 10px;
+    transition: all .2s ease-in-out;
 }
 
-.lofi-embed.-open {
-    opacity: 1;
-    transition: 50ms all;
-    z-index: 10;
+.btn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
-.no-select {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+.music-container {
+    
+    border: 5px solid white;
+  border-radius: 15px;
+  display: flex;
+  padding: 20px 20px 20px 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 40px 40px;
+  z-index: 10;
 }
 
-* {
-    border: 1px solid red;
+.img-container {
+  position: relative;
+  width: 120px;
+}
+
+.img-container::after {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  transform: translate(-50%, 50%);
+}
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 120px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  border: 0;
+  background-color: #82716D;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0 8px;
+}
+
+.action-btn.action-btn-big {
+  color: #fff;
+  font-size: 35px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: #AB9E9B;
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 15px 40px 5px 140px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #604D49;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
 }
