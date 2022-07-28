@@ -6,7 +6,7 @@ body, h1, h2, h3, h4, h5, p, a, form, textarea {font-family: poppins; font-weigh
 }
 
 body {
-background-color: #82716D;
+  background-color: #82716D;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,39 +16,38 @@ background-color: #82716D;
 }
 
 .cafe {
-    background: url("assets/cafe-bg.svg");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: fixed;
-    height: 70vh;
-    width: 70vw;
+  background: url("assets/cafe-bg.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 70vh;
+  width: 70vw;
 }
 
 .sound-effect-container {
-    position: absolute;
-    padding: 30px 0px 0px 30px;
-    top: 0;
-    left: 0;
+  position: absolute;
+  padding: 30px 0px 0px 30px;
+  top: 0;
+  left: 0;
 }
 
 .btn {
-    border: 0;
-    background-color: #82716D;
-    color: #fff;
-    font-size: 50px;
-    padding-right: 10px;
-    transition: all .2s ease-in-out;
+  border: 0;
+  background-color: #82716D;
+  color: #fff;
+  font-size: 50px;
+  padding-right: 10px;
+  transition: all .2s ease-in-out;
 }
 
 .btn:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .music-container {
-    
-    border: 5px solid white;
+  border: 5px solid white;
   border-radius: 15px;
   display: flex;
   padding: 20px 20px 20px 20px;
