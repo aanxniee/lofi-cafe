@@ -161,3 +161,10 @@ body {
   width: 0%;
   transition: width 0.1s linear;
 }
+
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

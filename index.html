@@ -12,11 +12,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
     <body>
-        <div class="cafe"></div>
-        <div class="sound-effect-container">
-            <button id="cafe-btn" class="btn"><img src="assets/cafe.svg" width="100vw" height="100vw"></button>
-            <button id="fire-btn" class="btn"><img src="assets/fire.svg" width="100vw" height="100vw"></i></button>
-            <button id="rain-btn" class="btn"><img src="assets/rain.svg" width="100vw" height="100vw"></i></button>
+        <div class="cafe no-select"></div>
+        <div class="sound-effect-container no-select">
+            <button id="cafe-btn" class="btn"><img src="assets/cafe.svg" width="100vw" height="100vw" draggable="false"></button>
+            <button id="fire-btn" class="btn"><img src="assets/fire.svg" width="100vw" height="100vw" draggable="false"></i></button>
+            <button id="rain-btn" class="btn"><img src="assets/rain.svg" width="100vw" height="100vw" draggable="false"></i></button>
         </div>
         
         <audio src="assets/cafe_sound.mp3" id="cafe-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
@@ -78,7 +78,7 @@
             });
         </script>
 
-        <div class="music-container" id="music-container">
+        <div class="music-container no-select" id="music-container">
             <div class="music-info">
               <h4 id="title"></h4>
               <div class="progress-container" id="progress-container">
@@ -89,7 +89,7 @@
             <audio src="assets/lofi/afternoon homework.mp3" id="audio"></audio>
       
             <div class="img-container">
-              <img src="assets/cover.png" alt="music-cover" id="cover"/>
+              <img src="assets/cover.png" alt="music-cover" id="cover" draggable="false"/>
             </div>
             <div class="navigation">
               <button id="prev" class="action-btn"><i class="fas fa-backward"></i></button>
