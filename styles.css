@@ -107,19 +107,19 @@ body {
   border: 0;
   background-color: #82716D;
   color: #fff;
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   padding: 8px;
   margin: 0 8px;
+  transition: all .2s ease-in-out;
 }
 
+.action-btn:hover {
+  transform: scale(1.2);
+}
 .action-btn.action-btn-big {
   color: #fff;
   font-size: 35px;
-}
-
-.action-btn:focus {
-  outline: 0;
 }
 
 .music-info {
