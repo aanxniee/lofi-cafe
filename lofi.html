@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="https://cdn.plyr.io/3.6.2/plyr.css">
 		<link rel="stylesheet" type="text/css" href="lofi.css">
+        <script src="https://kit.fontawesome.com/89e5948346.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        
-    </body>
+        <div class="music-container" id="music-container">
+            <div class="music-info">
+              <h4 id="title"></h4>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+      
+            <audio src="assets/lofi/afternoon homework.mp3" id="audio"></audio>
+      
+            <div class="img-container">
+              <img src="assets/cover.png" alt="music-cover" id="cover" />
+            </div>
+            <div class="navigation">
+              <button id="prev" class="action-btn"><i class="fas fa-backward"></i></button>
+              <button id="play" class="action-btn action-btn-big"><i class="fas fa-play"></i></button>
+              <button id="next" class="action-btn"><i class="fas fa-forward"></i></button>
+            </div>
+          </div>
+      
+          <script src="script.js"></script>
+        </body>
 </html>
