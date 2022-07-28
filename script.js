@@ -2,7 +2,6 @@ const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
-
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
@@ -11,73 +10,65 @@ const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
-// Song titles
-const songs = ['afternoon homework', 'all over again', 'are you lost'];
+const songs = ['afternoon homework', 'all over again', 'are you lost', 'aster', 'at night thinking about you', 'backyard', 'bird watching', 'breathing', 'city lights', 'dancing on my own pt2', 'despondency', 'distant memories', 'dont run', 'evening sky', 'faithful', 'falling asleep together when it rains', 'feeling cozy', 'fresh', 'friends in different seasons', 'hey', 'hobo', 'i found myself in the cold', 'i think youd like me better now', 'in love', 'it might take forever', 'its a good night', 'its okay', 'karasuno high', 'keep gazing', 'lavender', 'let me hold you', 'like i need u', 'lonely', 'lullabies', 'me n you', 'melting snow growing leaves and the sound of spring', 'memories', 'midsummer nights', 'neverland', 'nightskate', 'nov2', 'on my way', 'over now', 'panorama', 'past fields', 'plaza', 'remember me when i leave', 'reminisce', 'rowboat', 'sanctum', 'sea la vie', 'shyness', 'sleepy eyes', 'summertime', 'tender', 'under the stars', 'unknown places', 'unrequited', 'walk by the lake', 'water lily', 'what u need', '喫茶店'];
 
-// Keep track of song
 let songIndex = 2;
-
-// Initially load song details into DOM
-loadSong(songs[songIndex]);
-
-// Update song details
+loadSong(songs[songIndex]); // initially load song details into DOM
+ 
+// update song details
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `assets/lofi/${song}.mp3`;
+  audio.src = `assets/lofi/${song}.mp3`; // access it using the name stored in the array
 }
 
-// Play song
+// play 
 function playSong() {
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
   playBtn.querySelector('i.fas').classList.add('fa-pause');
-
   audio.play();
 }
 
-// Pause song
+// pause 
 function pauseSong() {
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
   audio.pause();
 }
 
-// Previous song
+// previous
 function prevSong() {
-  songIndex--;
+  songIndex--; // decrement, go to previous track
 
   if (songIndex < 0) {
     songIndex = songs.length - 1;
   }
 
   loadSong(songs[songIndex]);
-
   playSong();
 }
 
-// Next song
+// next song
 function nextSong() {
-  songIndex++;
+  songIndex++; // increment, skip a track
 
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
 
   loadSong(songs[songIndex]);
-
   playSong();
 }
 
-// Update progress bar
+// updatetimer progress bar
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
   progress.style.width = `${progressPercent}%`;
 }
 
-// Set progress bar
+// set timer progress bar
 function setProgress(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
@@ -86,18 +77,16 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
-//get duration & currentTime for Time of song
+// find duration of song
 function DurTime (e) {
 	const {duration,currentTime} = e.srcElement;
 	var sec;
 	var sec_d;
 
-	// define minutes currentTime
 	let min = (currentTime==null)? 0:
 	 Math.floor(currentTime/60);
 	 min = min <10 ? '0'+min:min;
 
-	// define seconds currentTime
 	function get_sec (x) {
 		if(Math.floor(x) >= 60){
 			
@@ -114,11 +103,8 @@ function DurTime (e) {
 	} 
 
 	get_sec (currentTime,sec);
-
-	// change currentTime DOM
 	currTime.innerHTML = min +':'+ sec;
 
-	// define minutes duration
 	let min_d = (isNaN(duration) === true)? '0':
 		Math.floor(duration/60);
 	 min_d = min_d <10 ? '0'+min_d:min_d;
@@ -139,17 +125,12 @@ function DurTime (e) {
 		 	sec_d = sec_d <10 ? '0'+sec_d:sec_d;
 		 }
 	} 
-
-	// define seconds duration
 	
 	get_sec_d (duration);
-
-	// change duration DOM
 	durTime.innerHTML = min_d +':'+ sec_d;
 		
 };
 
-// Event listeners
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play');
 
@@ -160,20 +141,11 @@ playBtn.addEventListener('click', () => {
   }
 });
 
-// Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-
-// Time/song update
 audio.addEventListener('timeupdate', updateProgress);
-
-// Click on progress bar
 progressContainer.addEventListener('click', setProgress);
-
-// Song ends
 audio.addEventListener('ended', nextSong);
-
-// Time of song
 audio.addEventListener('timeupdate',DurTime);
 
 
