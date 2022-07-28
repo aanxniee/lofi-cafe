@@ -132,13 +132,13 @@ function DurTime (e) {
 };
 
 playBtn.addEventListener('click', () => {
-  const isPlaying = musicContainer.classList.contains('play');
-
-  if (isPlaying) {
-    pauseSong();
-  } else {
-    playSong();
-  }
+	const isPlaying = musicContainer.classList.contains('play');
+	
+	if (isPlaying) {
+		pauseSong();
+	} else {
+		playSong();
+	}
 });
 
 prevBtn.addEventListener('click', prevSong);
