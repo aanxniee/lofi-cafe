@@ -12,7 +12,7 @@ const durTime = document.querySelector('#durTime');
 
 const songs = ['afternoon homework', 'all over again', 'are you lost', 'aster', 'at night thinking about you', 'backyard', 'bird watching', 'breathing', 'city lights', 'dancing on my own pt2', 'despondency', 'distant memories', 'dont run', 'evening sky', 'faithful', 'falling asleep together when it rains', 'feeling cozy', 'fresh', 'friends in different seasons', 'hey', 'hobo', 'i found myself in the cold', 'i think youd like me better now', 'in love', 'it might take forever', 'its a good night', 'its okay', 'karasuno high', 'keep gazing', 'lavender', 'let me hold you', 'like i need u', 'lonely', 'lullabies', 'me n you', 'melting snow growing leaves and the sound of spring', 'memories', 'midsummer nights', 'neverland', 'nightskate', 'nov2', 'on my way', 'over now', 'panorama', 'past fields', 'plaza', 'remember me when i leave', 'reminisce', 'rowboat', 'sanctum', 'sea la vie', 'shyness', 'sleepy eyes', 'summertime', 'tender', 'under the stars', 'unknown places', 'unrequited', 'walk by the lake', 'water lily', 'what u need', '喫茶店'];
 
-let songIndex = 2;
+let songIndex = 1;
 loadSong(songs[songIndex]); // initially load song details into DOM
  
 // update song details
